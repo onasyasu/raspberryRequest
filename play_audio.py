@@ -1,6 +1,6 @@
 import os
 
-DIR = "audio"
+DIR = "/home/pi/raspberryRequest/audio"
 FORMAT = "mp3"
 
 def play(basename):
