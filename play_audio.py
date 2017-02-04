@@ -20,4 +20,4 @@ def test():
     play("notClick")
     
 if __name__ == "__main__":
-    test()
+    play("notClick")
