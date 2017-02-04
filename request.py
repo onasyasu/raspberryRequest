@@ -4,33 +4,31 @@
 import os, sys, time, urllib
 import play_audio as audio
 
-# for import dash_sensor
+# for import step in dash_sensor
 sys.path.append('../git/dash-sensor')
 import step
 
-# A or B
-ME="B"
-YOU="A"
-
+########## SETTINGS ##########
+ME = "B"
+YOU = "A"
+MAX_STEP_COUNT = 100
 DICT_USERNAME = {
     "A": "Kawasaki",
     "B": "Hashimoto"
 }
+##############################
 
 BASE_URL = "http://state-api.au-syd.mybluemix.net/state"
 
 def run():
-    
-    ### dash_sensor
+    total_step_count = 0
     print "dash_sensor"
-    time.sleep(1)
-    audio.play("10")
-    time.sleep(1)
-    audio.play("20")
-    time.sleep(1)
-    audio.play("30")
+    while total_step_count < MAX_STEP_COUNT:
+        step.count()
+        total_step_count += 10
+        print total_step_count
+        audio.play(str(total_step_count))
     print "dash done."
-    ### dash_sensor
     
     url = "%s/endRun%s" % (BASE_URL, ME)
     try:
@@ -68,7 +66,6 @@ def wait():
     
 def main():
     wait()
-    
     
 if __name__ == "__main__":
     main()
