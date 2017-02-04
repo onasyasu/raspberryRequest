@@ -52,7 +52,6 @@ def wait():
             if   isSoundable == "true":
                 audio.play("click%s" % DICT_USERNAME[YOU])
                 audio.play("pleaseRun")
-                os.system("curl http://state-api.au-syd.mybluemix.net/state/")
                 break
             elif isSoundable == "false":
                 pass
